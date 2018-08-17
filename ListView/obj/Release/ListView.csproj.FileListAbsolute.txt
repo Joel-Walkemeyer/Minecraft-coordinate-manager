@@ -1,0 +1,15 @@
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\bin\Release\CoordinateManager.exe.config
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\bin\Release\CoordinateManager.exe
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\bin\Release\CoordinateManager.pdb
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\bin\Release\fNbt.dll
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\bin\Release\fNbt.xml
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\ListView.csprojAssemblyReference.cache
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\CoordinateManager.Coordinate_Editor.resources
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\CoordinateManager.Home.resources
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\CoordinateManager.Properties.Resources.resources
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\CoordinateManager.TP_command.resources
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\ListView.csproj.GenerateResource.cache
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\ListView.csproj.CoreCompileInputs.cache
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\ListView.csproj.CopyComplete
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\CoordinateManager.exe
+C:\Users\l18walkj\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\ListView\obj\Release\CoordinateManager.pdb

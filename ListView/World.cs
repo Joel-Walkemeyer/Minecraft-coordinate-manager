@@ -24,8 +24,8 @@ namespace CoordinateManager
         public override string ToString()
         {
             string s = "";
-            s += worldType;
-            s += " ".PadRight(15, ' ') + "> ";
+            s += worldType + " ";
+            s = s.PadRight(15, '-') + "> ";
             s += name;
             return s;
         }

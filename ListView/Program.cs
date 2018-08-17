@@ -17,8 +17,7 @@ namespace CoordinateManager
         /// </summary>
 
         public static List<World> worlds = new List<World>();
-        static readonly string pth = @"c:\users\joel the fantastic\appdata\roaming\.minecraft";
-        //static readonly string pth = @"D:\l18walkj\OneDrive - All Saints College\ASC Desktop";
+        static readonly string pth = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft";
 
         [STAThread]
         static void Main()

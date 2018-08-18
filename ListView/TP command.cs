@@ -22,11 +22,11 @@ namespace CoordinateManager
         private void TP_command_Load(object sender, EventArgs e)
         {
             TXT_com.Text = command;
+            BTN_copy.Select();
         }
 
         private void BTN_copy_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(command);
             Clipboard.SetText(command);
         }
 

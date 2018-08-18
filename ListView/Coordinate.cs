@@ -11,7 +11,6 @@ namespace CoordinateManager
     public class Coordinate : ListViewItem
     {
         public enum Dim { Nether = -1, Overworld, End };
-
         public enum Prop { name = 0, x, y, z, dim };
 
         public Coordinate(string place = "", int x = 0, int y = 64, int z = 0, Dim dimension = Dim.Overworld)
@@ -40,8 +39,6 @@ namespace CoordinateManager
 
             Text = Name;
         }       
-
-
 
         public override string ToString()
         {

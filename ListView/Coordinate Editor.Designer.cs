@@ -43,24 +43,22 @@
             // 
             // TXT_name
             // 
-            this.TXT_name.Location = new System.Drawing.Point(16, 15);
-            this.TXT_name.Margin = new System.Windows.Forms.Padding(4);
+            this.TXT_name.Location = new System.Drawing.Point(12, 12);
             this.TXT_name.Name = "TXT_name";
-            this.TXT_name.Size = new System.Drawing.Size(250, 22);
+            this.TXT_name.Size = new System.Drawing.Size(188, 20);
             this.TXT_name.TabIndex = 0;
             // 
             // NUM_y
             // 
-            this.NUM_y.Location = new System.Drawing.Point(145, 47);
-            this.NUM_y.Margin = new System.Windows.Forms.Padding(4);
+            this.NUM_y.Location = new System.Drawing.Point(109, 38);
             this.NUM_y.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.NUM_y.Name = "NUM_y";
-            this.NUM_y.Size = new System.Drawing.Size(121, 22);
-            this.NUM_y.TabIndex = 1;
+            this.NUM_y.Size = new System.Drawing.Size(91, 20);
+            this.NUM_y.TabIndex = 2;
             this.NUM_y.Value = new decimal(new int[] {
             64,
             0,
@@ -69,8 +67,7 @@
             // 
             // NUM_z
             // 
-            this.NUM_z.Location = new System.Drawing.Point(275, 47);
-            this.NUM_z.Margin = new System.Windows.Forms.Padding(4);
+            this.NUM_z.Location = new System.Drawing.Point(206, 38);
             this.NUM_z.Maximum = new decimal(new int[] {
             30000000,
             0,
@@ -82,13 +79,12 @@
             0,
             -2147483648});
             this.NUM_z.Name = "NUM_z";
-            this.NUM_z.Size = new System.Drawing.Size(121, 22);
-            this.NUM_z.TabIndex = 2;
+            this.NUM_z.Size = new System.Drawing.Size(91, 20);
+            this.NUM_z.TabIndex = 3;
             // 
             // NUM_x
             // 
-            this.NUM_x.Location = new System.Drawing.Point(16, 47);
-            this.NUM_x.Margin = new System.Windows.Forms.Padding(4);
+            this.NUM_x.Location = new System.Drawing.Point(12, 38);
             this.NUM_x.Maximum = new decimal(new int[] {
             30000000,
             0,
@@ -100,38 +96,35 @@
             0,
             -2147483648});
             this.NUM_x.Name = "NUM_x";
-            this.NUM_x.Size = new System.Drawing.Size(121, 22);
-            this.NUM_x.TabIndex = 3;
+            this.NUM_x.Size = new System.Drawing.Size(91, 20);
+            this.NUM_x.TabIndex = 1;
             // 
             // BTN_can
             // 
-            this.BTN_can.Location = new System.Drawing.Point(145, 79);
-            this.BTN_can.Margin = new System.Windows.Forms.Padding(4);
+            this.BTN_can.Location = new System.Drawing.Point(206, 64);
             this.BTN_can.Name = "BTN_can";
-            this.BTN_can.Size = new System.Drawing.Size(121, 28);
-            this.BTN_can.TabIndex = 4;
+            this.BTN_can.Size = new System.Drawing.Size(91, 23);
+            this.BTN_can.TabIndex = 7;
             this.BTN_can.Text = "Cancel";
             this.BTN_can.UseVisualStyleBackColor = true;
             this.BTN_can.Click += new System.EventHandler(this.BTN_can_Click);
             // 
             // BTN_del
             // 
-            this.BTN_del.Location = new System.Drawing.Point(275, 79);
-            this.BTN_del.Margin = new System.Windows.Forms.Padding(4);
+            this.BTN_del.Location = new System.Drawing.Point(109, 64);
             this.BTN_del.Name = "BTN_del";
-            this.BTN_del.Size = new System.Drawing.Size(121, 28);
-            this.BTN_del.TabIndex = 5;
+            this.BTN_del.Size = new System.Drawing.Size(91, 23);
+            this.BTN_del.TabIndex = 6;
             this.BTN_del.Text = "Delete";
             this.BTN_del.UseVisualStyleBackColor = true;
             this.BTN_del.Click += new System.EventHandler(this.BTN_del_Click);
             // 
             // BTN_save
             // 
-            this.BTN_save.Location = new System.Drawing.Point(16, 79);
-            this.BTN_save.Margin = new System.Windows.Forms.Padding(4);
+            this.BTN_save.Location = new System.Drawing.Point(12, 64);
             this.BTN_save.Name = "BTN_save";
-            this.BTN_save.Size = new System.Drawing.Size(121, 28);
-            this.BTN_save.TabIndex = 6;
+            this.BTN_save.Size = new System.Drawing.Size(91, 23);
+            this.BTN_save.TabIndex = 5;
             this.BTN_save.Text = "Save";
             this.BTN_save.UseVisualStyleBackColor = true;
             this.BTN_save.Click += new System.EventHandler(this.BTN_save_Click);
@@ -139,16 +132,17 @@
             // CBX_DimSelect
             // 
             this.CBX_DimSelect.FormattingEnabled = true;
-            this.CBX_DimSelect.Location = new System.Drawing.Point(273, 15);
+            this.CBX_DimSelect.Location = new System.Drawing.Point(205, 12);
+            this.CBX_DimSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBX_DimSelect.Name = "CBX_DimSelect";
-            this.CBX_DimSelect.Size = new System.Drawing.Size(127, 24);
-            this.CBX_DimSelect.TabIndex = 7;
+            this.CBX_DimSelect.Size = new System.Drawing.Size(96, 21);
+            this.CBX_DimSelect.TabIndex = 4;
             // 
             // Coordinate_Editor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 121);
+            this.ClientSize = new System.Drawing.Size(309, 98);
             this.Controls.Add(this.CBX_DimSelect);
             this.Controls.Add(this.BTN_save);
             this.Controls.Add(this.BTN_del);
@@ -157,7 +151,6 @@
             this.Controls.Add(this.NUM_z);
             this.Controls.Add(this.NUM_y);
             this.Controls.Add(this.TXT_name);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Coordinate_Editor";
             this.Text = "Coordinate Editor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Coordinate_Editor_FormClosed);

@@ -35,39 +35,43 @@
             // 
             // TXT_com
             // 
-            this.TXT_com.Location = new System.Drawing.Point(12, 12);
+            this.TXT_com.Location = new System.Drawing.Point(9, 10);
+            this.TXT_com.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TXT_com.Name = "TXT_com";
-            this.TXT_com.Size = new System.Drawing.Size(294, 22);
-            this.TXT_com.TabIndex = 0;
+            this.TXT_com.Size = new System.Drawing.Size(222, 20);
+            this.TXT_com.TabIndex = 1;
             // 
             // BTN_close
             // 
-            this.BTN_close.Location = new System.Drawing.Point(162, 40);
+            this.BTN_close.Location = new System.Drawing.Point(122, 32);
+            this.BTN_close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BTN_close.Name = "BTN_close";
-            this.BTN_close.Size = new System.Drawing.Size(144, 32);
-            this.BTN_close.TabIndex = 1;
+            this.BTN_close.Size = new System.Drawing.Size(108, 26);
+            this.BTN_close.TabIndex = 2;
             this.BTN_close.Text = "Close";
             this.BTN_close.UseVisualStyleBackColor = true;
             this.BTN_close.Click += new System.EventHandler(this.BTN_close_Click);
             // 
             // BTN_copy
             // 
-            this.BTN_copy.Location = new System.Drawing.Point(12, 40);
+            this.BTN_copy.Location = new System.Drawing.Point(9, 32);
+            this.BTN_copy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BTN_copy.Name = "BTN_copy";
-            this.BTN_copy.Size = new System.Drawing.Size(144, 32);
-            this.BTN_copy.TabIndex = 2;
+            this.BTN_copy.Size = new System.Drawing.Size(108, 26);
+            this.BTN_copy.TabIndex = 0;
             this.BTN_copy.Text = "Copy";
             this.BTN_copy.UseVisualStyleBackColor = true;
             this.BTN_copy.Click += new System.EventHandler(this.BTN_copy_Click);
             // 
             // TP_command
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 84);
+            this.ClientSize = new System.Drawing.Size(238, 68);
             this.Controls.Add(this.BTN_copy);
             this.Controls.Add(this.BTN_close);
             this.Controls.Add(this.TXT_com);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TP_command";
             this.Text = "TP command";
             this.Load += new System.EventHandler(this.TP_command_Load);

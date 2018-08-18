@@ -44,7 +44,7 @@ namespace CoordinateManager
                     worldFile.LoadFromFile(Path.Combine(dir, @"level.dat"));
                     var tag = worldFile.RootTag;
                     string name = (tag.Get<NbtCompound>("Data").Get<NbtString>("LevelName").Value.ToString());
-                    worlds.Add(new World(dir, name, World.type.singlePlayer));
+                    worlds.Add(new World(Path.Combine(dir, "coords.txt"), name, World.type.singlePlayer));
                 }
             }
         }
@@ -67,6 +67,26 @@ namespace CoordinateManager
                 serverName = servers.Get<NbtCompound>(i).Get<NbtString>("name").Value.ToString();
                 worlds.Add(new World(Path.Combine(pth, @"saves\coords\", serverName + @".txt"), serverName, World.type.server));
             }
+        }
+
+        public static bool GetFileInUse(FileInfo file)
+        {
+            FileStream stream = null;
+
+            try
+            {
+                stream = file.Open(FileMode.Open, FileAccess.Read, FileShare.None);
+            }
+            catch (IOException)
+            {
+                return true;
+            }
+            finally
+            {
+                if (stream != null)
+                    stream.Close();
+            }
+            return false;
         }
     }
 }

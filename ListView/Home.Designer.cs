@@ -44,7 +44,7 @@
             // 
             // LVW_List
             // 
-            this.LVW_List.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.LVW_List.BackColor = System.Drawing.SystemColors.ControlLight;
             this.LVW_List.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LVW_List.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.LVC_Name,
@@ -164,7 +164,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(754, 586);
             this.Controls.Add(this.LVW_List);
             this.Controls.Add(this.CBX_WorldSelect);

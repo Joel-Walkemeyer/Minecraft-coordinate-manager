@@ -30,6 +30,7 @@ namespace CoordinateManager
             CBX_WorldSelect.DataSource = Program.worlds;
 
             UpdateList();
+
             edited = false;
         }
 
@@ -92,6 +93,15 @@ namespace CoordinateManager
 
             currentWorldID = CBX_WorldSelect.SelectedIndex;
             Open((Program.worlds[currentWorldID].dir));
+
+            LVC_Name.Width = 120;
+            LVC_x.Width = 50;
+            LVC_y.Width = 50;
+            LVC_z.Width = 50;
+            LVC_dim.Width = 100;
+            LVC_x.TextAlign = HorizontalAlignment.Center;
+            LVC_y.TextAlign = HorizontalAlignment.Center;
+            LVC_z.TextAlign = HorizontalAlignment.Center;
         }
 
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
@@ -141,13 +151,12 @@ namespace CoordinateManager
         {
             Coordinate_Editor frm = new Coordinate_Editor(crd, this);
             frm.ShowDialog();
+            edited = true;
         }
 
 
         public void UpdateList()
         {
-            edited = true;
-
             LVW_List.Items.Clear();
             LVW_List.Items.AddRange(Program.worlds[currentWorldID].coords.ToArray());
             LVW_List.Update();
@@ -176,6 +185,7 @@ namespace CoordinateManager
             }
 
             List<string> coordStrings = new List<string>();
+
             foreach (Coordinate c in Program.worlds[currentWorldID].coords)
             {
                 coordStrings.Add(c.ToString());
@@ -188,7 +198,7 @@ namespace CoordinateManager
         {
             if (File.Exists(file))
             {
-                string[] newcoords = File.ReadAllLines(file);   
+                string[] newcoords = File.ReadAllLines(file);
                 foreach (string c in newcoords)
                 {
                     Program.worlds[currentWorldID].coords.Add(new Coordinate(c));

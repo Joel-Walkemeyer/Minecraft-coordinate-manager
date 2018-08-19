@@ -13,16 +13,34 @@ namespace CoordinateManager
         public enum Dim { Nether = -1, Overworld, End };
         public enum Prop { name = 0, x, y, z, dim };
 
+        public int X
+        {
+            get { return Convert.ToInt32(SubItems[(int)Prop.x].Text); }
+            set { SubItems[(int)Prop.x] = new ListViewSubItem(this, value.ToString()); }
+        }
+
+        public int Y
+        {
+            get { return Convert.ToInt32(SubItems[(int)Prop.y].Text); }
+            set { SubItems[(int)Prop.y] = new ListViewSubItem(this, value.ToString()); }
+        }
+
+        public int Z
+        {
+            get { return Convert.ToInt32(SubItems[(int)Prop.z].Text); }
+            set { SubItems[(int)Prop.z] = new ListViewSubItem(this, value.ToString()); }
+        }
+
         public Coordinate(string place = "", int x = 0, int y = 64, int z = 0, Dim dimension = Dim.Overworld)
         {
-            Name = place;
+            Name = "Bla";
 
             SubItems.Add(new ListViewSubItem(this, x.ToString()));
             SubItems.Add(new ListViewSubItem(this, y.ToString()));
             SubItems.Add(new ListViewSubItem(this, z.ToString()));
             SubItems.Add(new ListViewSubItem(this, dimension.ToString()));
 
-            Text = Name;
+            Text = place;
         }
 
 

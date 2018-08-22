@@ -17,7 +17,6 @@ namespace CoordinateManager
         public List<string> instances = new List<string>();
         public bool edited;
         private Coordinate editingCrd;
-        public int currentWorldID;
 
         mcInstance mc = new mcInstance("MC", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft"));
 
@@ -65,12 +64,12 @@ namespace CoordinateManager
             }
             LVW_Coords.HideSelection = false;
 
-            DisableEditor();
             CBX_WordlSel.DataSource = mc.worlds;
             CBX_DimSel.DataSource = Enum.GetNames(typeof(Coordinate.Dim));
 
             edited = false;
             PNL_Editor.BackColor = Color.FromKnownColor((KnownColor)Enum.Parse(typeof(KnownColor), Enum.GetNames(typeof(KnownColor))[0]));
+            DisableEditor();
         }
 
         //Events
@@ -79,7 +78,8 @@ namespace CoordinateManager
         {
             if (LVW_Coords.SelectedItems.Count > 0)
             {
-                EnableEditor((Coordinate)LVW_Coords.SelectedItems[0]);
+                editingCrd = (Coordinate)LVW_Coords.SelectedItems[0];
+                EnableEditor(editingCrd);
             }
             else
             {
@@ -89,6 +89,10 @@ namespace CoordinateManager
 
         private void BTN_New_Click(object sender, EventArgs e)
         {
+            if (LVW_Coords.SelectedItems.Count > 0)
+            {
+                LVW_Coords.SelectedItems[0].Selected = false;
+            }
             editingCrd = new Coordinate();
             ((World)CBX_WordlSel.SelectedItem).coords.Add(editingCrd);
             EnableEditor(editingCrd);
@@ -102,8 +106,9 @@ namespace CoordinateManager
             editingCrd.Z = (int)NUM_Zcoord.Value;
             editingCrd.dim = (Coordinate.Dim)Enum.Parse(typeof(Coordinate.Dim), CBX_DimSel.SelectedItem.ToString());
             UpdateList();
-            LVW_Coords.Items[LVW_Coords.Items.IndexOf(editingCrd)].Selected = true;
-            LVW_Coords.Select();
+
+            editingCrd.Selected = true;
+            PNL_Editor.Select();
         }
 
         private void CBX_WordlSel_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,41 +120,29 @@ namespace CoordinateManager
             }
         }
 
-        private void TXT_Name_TextChanged(object sender, EventArgs e)
+        private void BTN_Cancel_Click(object sender, EventArgs e)
         {
+            EnableEditor(editingCrd);
         }
 
-        private void CBX_TagSel_SelectedIndexChanged(object sender, EventArgs e)
+        private void BTN_Del_Click(object sender, EventArgs e)
         {
-        }
-
-        private void NUM_Zcoord_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void CBX_DimSel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void NUM_Ycoord_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void NUM_Xcoord_ValueChanged(object sender, EventArgs e)
-        {
+            ((World)CBX_WordlSel.SelectedItem).coords.Remove(editingCrd);
+            UpdateList();
+            DisableEditor();
         }
 
         //Functions
 
         public void DisableEditor()
         {
-            NUM_Xcoord.Value = Convert.ToInt32("");
-            NUM_Ycoord.Value = Convert.ToInt32("");
-            NUM_Zcoord.Value = Convert.ToInt32("");
+            NUM_Xcoord.Controls[1].Text = "";
+            NUM_Ycoord.Controls[1].Text = "";
+            NUM_Zcoord.Controls[1].Text = "";
+
             TXT_Name.Text = "";
             CBX_DimSel.SelectedItem = null;
             CBX_TagSel.SelectedItem = null;
-
 
             BTN_Cancel.Enabled = false;
             BTN_Del.Enabled =    false;
@@ -177,11 +170,13 @@ namespace CoordinateManager
             CBX_TagSel.Enabled = true;
 
             TXT_Name.Text = selectedCoord.Name;
+            NUM_Xcoord.Controls[1].Text = selectedCoord.X.ToString();
+            NUM_Ycoord.Controls[1].Text = selectedCoord.Y.ToString();
+            NUM_Zcoord.Controls[1].Text = selectedCoord.Z.ToString();
             NUM_Xcoord.Value = selectedCoord.X;
             NUM_Ycoord.Value = selectedCoord.Y;
             NUM_Zcoord.Value = selectedCoord.Z;
-
-            CBX_DimSel.SelectedItem = selectedCoord.dim;
+            CBX_DimSel.SelectedItem = selectedCoord.dim.ToString();
         }
 
         public void UpdateList()

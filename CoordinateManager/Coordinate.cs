@@ -34,26 +34,7 @@ namespace CoordinateManager
         public Dim dim
         {
             get { return (Dim)(Enum.Parse(typeof(Dim), SubItems[(int)Prop.dim].Text)); }
-            set
-            {
-                Color colour = Color.FromKnownColor(KnownColor.Window);
-
-                switch (value)
-                {
-                    case Dim.Nether:
-                        colour = Color.Firebrick;
-                        break;
-                    case Dim.Overworld:
-                        colour = Color.ForestGreen;
-                        break;
-                    case Dim.End:
-                        colour = Color.MidnightBlue;
-                        break;
-                }
-
-                SubItems[(int)Prop.dim].BackColor = colour;
-                SubItems[(int)Prop.dim] = new ListViewSubItem(this, value.ToString());
-            }
+            set { SubItems[(int)Prop.dim] = new ListViewSubItem(this, value.ToString()); }
         }
 
         public string Name

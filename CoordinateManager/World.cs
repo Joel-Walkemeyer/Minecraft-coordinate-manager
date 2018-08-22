@@ -32,5 +32,10 @@ namespace CoordinateManager
         {
             return name;
         }
+
+        public void RemoveCoord(Coordinate crd)
+        {
+            coords.Remove(crd);
+        }
     }
 }

@@ -17,6 +17,11 @@ namespace CoordinateManager
         public List<string> instances = new List<string>();
         public bool edited;
         private Coordinate editingCrd;
+        private World editingWorld
+        {
+            get { return (World)CBX_WordlSel.SelectedItem; }
+            set { }
+        }
 
         mcInstance mc = new mcInstance("MC", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft"));
 
@@ -94,12 +99,15 @@ namespace CoordinateManager
                 LVW_Coords.SelectedItems[0].Selected = false;
             }
             editingCrd = new Coordinate();
-            ((World)CBX_WordlSel.SelectedItem).coords.Add(editingCrd);
             EnableEditor(editingCrd);
         }
 
         private void BTN_Edit_Click(object sender, EventArgs e)
         {
+            if (!editingWorld.coords.Contains(editingCrd))
+            {
+                editingWorld.coords.Add(editingCrd);
+            }
             editingCrd.Name = TXT_Name.Text;
             editingCrd.X = (int)NUM_Xcoord.Value;
             editingCrd.Y = (int)NUM_Ycoord.Value;
@@ -111,6 +119,22 @@ namespace CoordinateManager
             PNL_Editor.Select();
         }
 
+        private void BTN_Cancel_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem i in LVW_Coords.SelectedItems)
+            {
+                i.Selected = false;
+            }
+            DisableEditor();
+        }
+
+        private void BTN_Del_Click(object sender, EventArgs e)
+        {
+            editingWorld.coords.Remove(editingCrd);
+            UpdateList();
+            DisableEditor();
+        }
+
         private void CBX_WordlSel_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateList();
@@ -118,17 +142,6 @@ namespace CoordinateManager
             {
                 BTN_NewWorld.Enabled = false;
             }
-        }
-
-        private void BTN_Cancel_Click(object sender, EventArgs e)
-        {
-            EnableEditor(editingCrd);
-        }
-
-        private void BTN_Del_Click(object sender, EventArgs e)
-        {
-            ((World)CBX_WordlSel.SelectedItem).coords.Remove(editingCrd);
-            UpdateList();
             DisableEditor();
         }
 
@@ -188,14 +201,6 @@ namespace CoordinateManager
         private DialogResult ConfirmClose()
         {
             return MessageBox.Show("Do you want to save your changes?", "Save changes?", MessageBoxButtons.YesNoCancel);
-        }
-
-        private void SaveWorld(string file)
-        {
-        }
-
-        private void OpenWorld(string file)
-        {
         }
     }
 }

@@ -37,5 +37,20 @@ namespace CoordinateManager
         {
             coords.Remove(crd);
         }
+
+        public void OpenWorld()
+        {
+
+        }
+        
+        public void SaveWorld()
+        {
+            CloseWorld();
+        }
+
+        public void CloseWorld()
+        {
+
+        }
     }
 }

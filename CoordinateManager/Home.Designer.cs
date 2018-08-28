@@ -37,6 +37,8 @@
             this.LVW_Coords = new System.Windows.Forms.ListView();
             this.PNL_Editor = new System.Windows.Forms.Panel();
             this.PNL_Set = new System.Windows.Forms.Panel();
+            this.PNL_TP = new System.Windows.Forms.Panel();
+            this.TXT_TPcom = new System.Windows.Forms.TextBox();
             this.BTN_TP = new System.Windows.Forms.Button();
             this.BTN_Edit = new System.Windows.Forms.Button();
             this.BTN_Cancel = new System.Windows.Forms.Button();
@@ -52,6 +54,7 @@
             this.PNL_World.SuspendLayout();
             this.PNL_Editor.SuspendLayout();
             this.PNL_Set.SuspendLayout();
+            this.PNL_TP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Zcoord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Ycoord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Xcoord)).BeginInit();
@@ -70,7 +73,7 @@
             this.PNL_World.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_World.Name = "PNL_World";
             this.PNL_World.Padding = new System.Windows.Forms.Padding(2);
-            this.PNL_World.Size = new System.Drawing.Size(640, 47);
+            this.PNL_World.Size = new System.Drawing.Size(640, 45);
             this.PNL_World.TabIndex = 5;
             // 
             // CBX_InstSel
@@ -90,7 +93,7 @@
             this.BTN_NewWorld.Location = new System.Drawing.Point(398, 2);
             this.BTN_NewWorld.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_NewWorld.Name = "BTN_NewWorld";
-            this.BTN_NewWorld.Size = new System.Drawing.Size(80, 22);
+            this.BTN_NewWorld.Size = new System.Drawing.Size(80, 20);
             this.BTN_NewWorld.TabIndex = 13;
             this.BTN_NewWorld.Text = "NW";
             this.BTN_NewWorld.UseVisualStyleBackColor = true;
@@ -102,7 +105,7 @@
             this.BTN_Save.Location = new System.Drawing.Point(478, 2);
             this.BTN_Save.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Save.Name = "BTN_Save";
-            this.BTN_Save.Size = new System.Drawing.Size(80, 22);
+            this.BTN_Save.Size = new System.Drawing.Size(80, 20);
             this.BTN_Save.TabIndex = 12;
             this.BTN_Save.Text = "Save";
             this.BTN_Save.UseVisualStyleBackColor = true;
@@ -114,7 +117,7 @@
             this.BTN_Options.Location = new System.Drawing.Point(558, 2);
             this.BTN_Options.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Options.Name = "BTN_Options";
-            this.BTN_Options.Size = new System.Drawing.Size(80, 22);
+            this.BTN_Options.Size = new System.Drawing.Size(80, 20);
             this.BTN_Options.TabIndex = 11;
             this.BTN_Options.Text = "Options";
             this.BTN_Options.UseVisualStyleBackColor = true;
@@ -123,7 +126,7 @@
             // 
             this.CBX_WordlSel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CBX_WordlSel.FormattingEnabled = true;
-            this.CBX_WordlSel.Location = new System.Drawing.Point(2, 24);
+            this.CBX_WordlSel.Location = new System.Drawing.Point(2, 22);
             this.CBX_WordlSel.Margin = new System.Windows.Forms.Padding(2);
             this.CBX_WordlSel.Name = "CBX_WordlSel";
             this.CBX_WordlSel.Size = new System.Drawing.Size(636, 21);
@@ -140,7 +143,7 @@
             this.LVW_Coords.Margin = new System.Windows.Forms.Padding(2);
             this.LVW_Coords.MultiSelect = false;
             this.LVW_Coords.Name = "LVW_Coords";
-            this.LVW_Coords.Size = new System.Drawing.Size(476, 349);
+            this.LVW_Coords.Size = new System.Drawing.Size(476, 351);
             this.LVW_Coords.TabIndex = 6;
             this.LVW_Coords.UseCompatibleStateImageBehavior = false;
             this.LVW_Coords.SelectedIndexChanged += new System.EventHandler(this.LVW_Coords_SelectedIndexChanged);
@@ -150,17 +153,17 @@
             this.PNL_Editor.Controls.Add(this.PNL_Set);
             this.PNL_Editor.Controls.Add(this.BTN_New);
             this.PNL_Editor.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PNL_Editor.Location = new System.Drawing.Point(480, 47);
+            this.PNL_Editor.Location = new System.Drawing.Point(480, 45);
             this.PNL_Editor.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_Editor.Name = "PNL_Editor";
             this.PNL_Editor.Padding = new System.Windows.Forms.Padding(2);
-            this.PNL_Editor.Size = new System.Drawing.Size(160, 353);
+            this.PNL_Editor.Size = new System.Drawing.Size(160, 355);
             this.PNL_Editor.TabIndex = 7;
             // 
             // PNL_Set
             // 
             this.PNL_Set.AutoScroll = true;
-            this.PNL_Set.Controls.Add(this.BTN_TP);
+            this.PNL_Set.Controls.Add(this.PNL_TP);
             this.PNL_Set.Controls.Add(this.BTN_Edit);
             this.PNL_Set.Controls.Add(this.BTN_Cancel);
             this.PNL_Set.Controls.Add(this.BTN_Del);
@@ -174,19 +177,40 @@
             this.PNL_Set.Location = new System.Drawing.Point(2, 2);
             this.PNL_Set.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_Set.Name = "PNL_Set";
-            this.PNL_Set.Size = new System.Drawing.Size(156, 330);
+            this.PNL_Set.Size = new System.Drawing.Size(156, 332);
             this.PNL_Set.TabIndex = 16;
+            // 
+            // PNL_TP
+            // 
+            this.PNL_TP.Controls.Add(this.TXT_TPcom);
+            this.PNL_TP.Controls.Add(this.BTN_TP);
+            this.PNL_TP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PNL_TP.Location = new System.Drawing.Point(0, 179);
+            this.PNL_TP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PNL_TP.Name = "PNL_TP";
+            this.PNL_TP.Size = new System.Drawing.Size(156, 21);
+            this.PNL_TP.TabIndex = 16;
+            // 
+            // TXT_TPcom
+            // 
+            this.TXT_TPcom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TXT_TPcom.Location = new System.Drawing.Point(0, 0);
+            this.TXT_TPcom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TXT_TPcom.Name = "TXT_TPcom";
+            this.TXT_TPcom.Size = new System.Drawing.Size(121, 20);
+            this.TXT_TPcom.TabIndex = 15;
             // 
             // BTN_TP
             // 
-            this.BTN_TP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTN_TP.Location = new System.Drawing.Point(0, 179);
+            this.BTN_TP.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BTN_TP.Location = new System.Drawing.Point(121, 0);
             this.BTN_TP.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_TP.Name = "BTN_TP";
-            this.BTN_TP.Size = new System.Drawing.Size(156, 19);
+            this.BTN_TP.Size = new System.Drawing.Size(35, 21);
             this.BTN_TP.TabIndex = 12;
             this.BTN_TP.Text = "TP";
             this.BTN_TP.UseVisualStyleBackColor = true;
+            this.BTN_TP.Click += new System.EventHandler(this.BTN_TP_Click);
             // 
             // BTN_Edit
             // 
@@ -283,7 +307,7 @@
             // BTN_New
             // 
             this.BTN_New.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BTN_New.Location = new System.Drawing.Point(2, 332);
+            this.BTN_New.Location = new System.Drawing.Point(2, 334);
             this.BTN_New.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_New.Name = "BTN_New";
             this.BTN_New.Size = new System.Drawing.Size(156, 19);
@@ -296,11 +320,11 @@
             // 
             this.PNL_Coords.Controls.Add(this.LVW_Coords);
             this.PNL_Coords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNL_Coords.Location = new System.Drawing.Point(0, 47);
+            this.PNL_Coords.Location = new System.Drawing.Point(0, 45);
             this.PNL_Coords.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_Coords.Name = "PNL_Coords";
             this.PNL_Coords.Padding = new System.Windows.Forms.Padding(2);
-            this.PNL_Coords.Size = new System.Drawing.Size(480, 353);
+            this.PNL_Coords.Size = new System.Drawing.Size(480, 355);
             this.PNL_Coords.TabIndex = 8;
             // 
             // Home
@@ -320,6 +344,8 @@
             this.PNL_Editor.ResumeLayout(false);
             this.PNL_Set.ResumeLayout(false);
             this.PNL_Set.PerformLayout();
+            this.PNL_TP.ResumeLayout(false);
+            this.PNL_TP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Zcoord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Ycoord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Xcoord)).EndInit();
@@ -350,6 +376,8 @@
         private System.Windows.Forms.TextBox TXT_Name;
         private System.Windows.Forms.Panel PNL_Coords;
         private System.Windows.Forms.Panel PNL_Set;
+        private System.Windows.Forms.Panel PNL_TP;
+        private System.Windows.Forms.TextBox TXT_TPcom;
     }
 }
 

@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoadingFRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingFRM.Designer.cs">
+      <DependentUpon>LoadingFRM.cs</DependentUpon>
+    </Compile>
     <Compile Include="mcInstance.cs" />
     <Compile Include="World.cs" />
     <Compile Include="Home.cs">
@@ -61,6 +67,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingFRM.resx">
+      <DependentUpon>LoadingFRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

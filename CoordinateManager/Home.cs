@@ -20,7 +20,6 @@ namespace CoordinateManager
         private World editingWorld
         {
             get { return (World)CBX_WordlSel.SelectedItem; }
-            set { }
         }
 
         mcInstance mc = new mcInstance("MC", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft"));
@@ -33,6 +32,8 @@ namespace CoordinateManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Form
+            this.MinimumSize = new Size(400, 250);
             //Editor
             BTN_Cancel.Text = "Cancel";
             BTN_Del.Text = "Delete";
@@ -45,7 +46,7 @@ namespace CoordinateManager
             NUM_Xcoord.Maximum = 30000000;
             NUM_Ycoord.Maximum = 255;
             NUM_Zcoord.Maximum = 30000000;
-
+            TXT_TPcom.ReadOnly = true;
 
             //World
             BTN_Save.Text = "Save";
@@ -145,6 +146,12 @@ namespace CoordinateManager
             DisableEditor();
         }
 
+        private void BTN_TP_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+            Clipboard.SetText(TXT_TPcom.Text);
+        }
+
         //Functions
 
         public void DisableEditor()
@@ -153,6 +160,7 @@ namespace CoordinateManager
             NUM_Ycoord.Controls[1].Text = "";
             NUM_Zcoord.Controls[1].Text = "";
 
+            TXT_TPcom.Text = "";
             TXT_Name.Text = "";
             CBX_DimSel.SelectedItem = null;
             CBX_TagSel.SelectedItem = null;
@@ -162,6 +170,7 @@ namespace CoordinateManager
             BTN_Edit.Enabled =   false;
             BTN_TP.Enabled =     false;
             TXT_Name.Enabled =   false;
+            TXT_TPcom.Enabled =  false;
             NUM_Xcoord.Enabled = false;
             NUM_Ycoord.Enabled = false;
             NUM_Zcoord.Enabled = false;
@@ -176,11 +185,11 @@ namespace CoordinateManager
             BTN_Edit.Enabled =   true;
             BTN_TP.Enabled =     true;
             TXT_Name.Enabled =   true;
+            TXT_TPcom.Enabled =  true;
             NUM_Xcoord.Enabled = true;
             NUM_Ycoord.Enabled = true;
             NUM_Zcoord.Enabled = true;
             CBX_DimSel.Enabled = true;
-            CBX_TagSel.Enabled = true;
 
             TXT_Name.Text = selectedCoord.Name;
             NUM_Xcoord.Controls[1].Text = selectedCoord.X.ToString();
@@ -190,6 +199,8 @@ namespace CoordinateManager
             NUM_Ycoord.Value = selectedCoord.Y;
             NUM_Zcoord.Value = selectedCoord.Z;
             CBX_DimSel.SelectedItem = selectedCoord.dim.ToString();
+
+            TXT_TPcom.Text = String.Format("/execute in {0} run tp {1} {2} {3}", (selectedCoord.dim.ToString()).ToLower(), selectedCoord.X.ToString(), selectedCoord.Y.ToString(), selectedCoord.Z.ToString());
         }
 
         public void UpdateList()

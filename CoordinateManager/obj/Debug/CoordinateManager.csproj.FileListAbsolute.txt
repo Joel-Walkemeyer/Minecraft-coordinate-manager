@@ -54,3 +54,4 @@ C:\Users\Joel The Fantastic\OneDrive\Documents\Visual Studio 2017\Projects\Minec
 C:\Users\Joel The Fantastic\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\CoordinateManager\obj\Debug\CoordinateManager.csproj.CopyComplete
 C:\Users\Joel The Fantastic\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\CoordinateManager\obj\Debug\CoordinateManager.exe
 C:\Users\Joel The Fantastic\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\CoordinateManager\obj\Debug\CoordinateManager.pdb
+C:\Users\Joel The Fantastic\OneDrive\Documents\Visual Studio 2017\Projects\Minecraft-coordinates-manager\CoordinateManager\obj\Debug\CoordinateManager.FRM_Loading.resources

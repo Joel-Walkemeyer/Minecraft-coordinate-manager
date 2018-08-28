@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace CoordinateManager
 {
-    class mcInstance
+    public class mcInstance
     {
+        public int worldCount;
         public string name, dir;
         public List<World> worlds = new List<World>();
 
@@ -16,14 +18,22 @@ namespace CoordinateManager
         {
             this.name = name;
             this.dir = dir;
-
-            foreach (string file in Directory.GetDirectories(Path.Combine(dir, "saves")))
+            FRM_Loading load = new FRM_Loading(worldCount, this);
+            load.ShowDialog();
+            /*
+            if (Directory.Exists(Path.Combine(dir, "saves")))
             {
-                if (!File.Exists(file))
+                worldCount = Directory.GetDirectories(Path.Combine(dir, "saves")).Length;
+                foreach (string file in Directory.GetDirectories(Path.Combine(dir, "saves")))
                 {
-                    worlds.Add(new World(file));
+                    if (!File.Exists(file))
+                    {
+                        worlds.Add(new World(file));
+                        load.count++;
+                    }
                 }
             }
+            */
         }
     }
 }

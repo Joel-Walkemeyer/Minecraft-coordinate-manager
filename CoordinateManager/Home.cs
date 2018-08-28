@@ -213,5 +213,10 @@ namespace CoordinateManager
         {
             return MessageBox.Show("Do you want to save your changes?", "Save changes?", MessageBoxButtons.YesNoCancel);
         }
+
+        private void BTN_Save_Click(object sender, EventArgs e)
+        {
+            editingWorld.SaveWorld();
+        }
     }
 }

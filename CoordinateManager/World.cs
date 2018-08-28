@@ -26,6 +26,10 @@ namespace CoordinateManager
         public World(string directory)
         {
             dir = directory;
+            if (File.Exists(Path.Combine(dir, "coords.dat")))
+            {
+                OpenWorld();
+            }
         }
 
         public override string ToString()
@@ -40,11 +44,42 @@ namespace CoordinateManager
 
         public void OpenWorld()
         {
-
+            NbtFile file = new NbtFile();
+            file.LoadFromFile(Path.Combine(dir, "coords.dat"));
+            NbtList clist = file.RootTag.Get<NbtList>("DATA");
+            foreach (NbtCompound c in clist)
+            {
+                string Name = (c.Get<NbtString>("Name")).Value;
+                int X = c.Get<NbtInt>("X").Value;
+                int Y = c.Get<NbtInt>("Y").Value;
+                int Z = c.Get<NbtInt>("Z").Value;
+                int Dim = c.Get<NbtInt>("Dim").Value;
+                coords.Add(new Coordinate(Name, X, Y, Z, (Coordinate.Dim)Dim));
+            }
         }
         
         public void SaveWorld()
         {
+            NbtFile file = new NbtFile();
+            try
+            {
+                file.RootTag.Clear();
+            }
+            catch
+            { }
+            NbtList cList = new NbtList("DATA");
+            foreach (Coordinate c in coords)
+            {
+                NbtCompound cData = new NbtCompound();
+                cData.Add(new NbtString("Name", c.Name));
+                cData.Add(new NbtInt("X", c.X));
+                cData.Add(new NbtInt("Y", c.Y));
+                cData.Add(new NbtInt("Z", c.Z));
+                cData.Add(new NbtInt("Dim", (int)c.dim));
+                cList.Add(cData);
+            }
+            file.RootTag.Add(cList);
+            file.SaveToFile(Path.Combine(dir, "coords.dat"), NbtCompression.None);
             CloseWorld();
         }
 

@@ -10,6 +10,7 @@ namespace CoordinateManager
 {
     public class World
     {
+        public bool changed;
         public string dir;
         public string name
         {
@@ -65,8 +66,8 @@ namespace CoordinateManager
             {
                 file.RootTag.Clear();
             }
-            catch
-            { }
+            catch { }
+
             NbtList cList = new NbtList("DATA");
             foreach (Coordinate c in coords)
             {
@@ -78,14 +79,9 @@ namespace CoordinateManager
                 cData.Add(new NbtInt("Dim", (int)c.dim));
                 cList.Add(cData);
             }
+
             file.RootTag.Add(cList);
             file.SaveToFile(Path.Combine(dir, "coords.dat"), NbtCompression.None);
-            CloseWorld();
-        }
-
-        public void CloseWorld()
-        {
-
         }
     }
 }

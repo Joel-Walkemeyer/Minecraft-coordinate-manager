@@ -55,6 +55,12 @@
       <DependentUpon>LoadingFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="mcInstance.cs" />
+    <Compile Include="Saving.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Saving.Designer.cs">
+      <DependentUpon>Saving.cs</DependentUpon>
+    </Compile>
     <Compile Include="World.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -81,6 +87,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Saving.resx">
+      <DependentUpon>Saving.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

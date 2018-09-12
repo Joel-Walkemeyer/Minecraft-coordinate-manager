@@ -20,20 +20,28 @@ namespace CoordinateManager
             this.dir = dir;
             FRM_Loading load = new FRM_Loading(worldCount, this);
             load.ShowDialog();
-            /*
-            if (Directory.Exists(Path.Combine(dir, "saves")))
+        }
+        
+        public bool UnLoad()
+        {
+            List<World> changedWorlds = new List<World>();
+            foreach (World world in worlds)
             {
-                worldCount = Directory.GetDirectories(Path.Combine(dir, "saves")).Length;
-                foreach (string file in Directory.GetDirectories(Path.Combine(dir, "saves")))
+                if (world.changed)
                 {
-                    if (!File.Exists(file))
-                    {
-                        worlds.Add(new World(file));
-                        load.count++;
-                    }
+                    changedWorlds.Add(world);
                 }
             }
-            */
+            if (changedWorlds.Count > 0)
+            {
+                Saving f = new Saving(changedWorlds);
+                DialogResult t = f.ShowDialog();
+                return t == DialogResult.Yes;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

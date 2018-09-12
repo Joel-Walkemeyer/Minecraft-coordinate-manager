@@ -187,7 +187,7 @@
             this.PNL_TP.Controls.Add(this.BTN_TP);
             this.PNL_TP.Dock = System.Windows.Forms.DockStyle.Top;
             this.PNL_TP.Location = new System.Drawing.Point(0, 179);
-            this.PNL_TP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PNL_TP.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_TP.Name = "PNL_TP";
             this.PNL_TP.Size = new System.Drawing.Size(156, 21);
             this.PNL_TP.TabIndex = 16;
@@ -196,7 +196,7 @@
             // 
             this.TXT_TPcom.Dock = System.Windows.Forms.DockStyle.Top;
             this.TXT_TPcom.Location = new System.Drawing.Point(0, 0);
-            this.TXT_TPcom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TXT_TPcom.Margin = new System.Windows.Forms.Padding(2);
             this.TXT_TPcom.Name = "TXT_TPcom";
             this.TXT_TPcom.Size = new System.Drawing.Size(121, 20);
             this.TXT_TPcom.TabIndex = 15;
@@ -339,6 +339,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
             this.Text = "Coordinate Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PNL_World.ResumeLayout(false);
             this.PNL_World.PerformLayout();

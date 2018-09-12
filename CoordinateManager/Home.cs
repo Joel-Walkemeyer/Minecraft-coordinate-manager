@@ -14,19 +14,24 @@ namespace CoordinateManager
     public partial class Home : Form
     {
 
-        public List<string> instances = new List<string>();
+        public List<mcInstance> instances = new List<mcInstance>();
         public bool edited;
+
         private Coordinate editingCrd;
         private World editingWorld
         {
             get { return (World)CBX_WordlSel.SelectedItem; }
         }
-
-        mcInstance mc = new mcInstance("MC", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft"));
+        private mcInstance editingMC
+        {
+            get { return (mcInstance)CBX_InstSel.SelectedItem; }
+        }
+        
 
         //Initial
         public Home()
         {
+            instances.Add(new mcInstance("MC", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft")));
             InitializeComponent();
         }
 
@@ -37,7 +42,7 @@ namespace CoordinateManager
             //Editor
             BTN_Cancel.Text = "Cancel";
             BTN_Del.Text = "Delete";
-            BTN_Edit.Text = "Save";
+            BTN_Edit.Text = "SaveSave";
             BTN_TP.Text = "/TP command";
             BTN_New.Text = "New Coordinate";
             NUM_Xcoord.Minimum = -30000000;
@@ -70,7 +75,11 @@ namespace CoordinateManager
             }
             LVW_Coords.HideSelection = false;
 
-            CBX_WordlSel.DataSource = mc.worlds;
+            CBX_InstSel.DataSource = instances;
+
+            CBX_InstSel.SelectedIndex = 0;
+
+            CBX_WordlSel.DataSource = editingMC.worlds;
             CBX_DimSel.DataSource = Enum.GetNames(typeof(Coordinate.Dim));
 
             edited = false;
@@ -118,14 +127,12 @@ namespace CoordinateManager
 
             editingCrd.Selected = true;
             PNL_Editor.Select();
+
+            editingWorld.changed = true;
         }
 
         private void BTN_Cancel_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem i in LVW_Coords.SelectedItems)
-            {
-                i.Selected = false;
-            }
             DisableEditor();
         }
 
@@ -134,6 +141,7 @@ namespace CoordinateManager
             editingWorld.coords.Remove(editingCrd);
             UpdateList();
             DisableEditor();
+            editingWorld.changed = true;
         }
 
         private void CBX_WordlSel_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,7 +149,7 @@ namespace CoordinateManager
             UpdateList();
             if (e.ToString() == "")
             {
-                BTN_NewWorld.Enabled = false;
+                BTN_New.Enabled = false;
             }
             DisableEditor();
         }
@@ -152,6 +160,19 @@ namespace CoordinateManager
             Clipboard.SetText(TXT_TPcom.Text);
         }
 
+        private void BTN_Save_Click(object sender, EventArgs e)
+        {
+            editingMC.UnLoad();
+        }
+
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!editingMC.UnLoad())
+            {
+                e.Cancel = true;
+            }
+        }
+        
         //Functions
 
         public void DisableEditor()
@@ -176,6 +197,14 @@ namespace CoordinateManager
             NUM_Zcoord.Enabled = false;
             CBX_DimSel.Enabled = false;
             CBX_TagSel.Enabled = false;
+
+            if (LVW_Coords.SelectedItems.Count > 0)
+            {
+                foreach (ListViewItem i in LVW_Coords.SelectedItems)
+                {
+                    i.Selected = false;
+                }
+            }
         }
 
         public void EnableEditor(Coordinate selectedCoord)
@@ -207,16 +236,6 @@ namespace CoordinateManager
         {
             LVW_Coords.Items.Clear();
             LVW_Coords.Items.AddRange(((World)CBX_WordlSel.SelectedItem).coords.ToArray());
-        }
-
-        private DialogResult ConfirmClose()
-        {
-            return MessageBox.Show("Do you want to save your changes?", "Save changes?", MessageBoxButtons.YesNoCancel);
-        }
-
-        private void BTN_Save_Click(object sender, EventArgs e)
-        {
-            editingWorld.SaveWorld();
         }
     }
 }
